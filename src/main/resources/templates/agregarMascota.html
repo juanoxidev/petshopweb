@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pets Java Webb</title>
+</head>
+
+<body>
+	<h2>Agregar mascota</h2>
+	<!-- Botones de acciones de las mascotas -->
+	<form th:action="@{/guardarMascota}" method="post" th:object="${mascota}">
+		<label for="nombre">Nombre:</label>
+		<input type="text" name="nombre" id="nombre" th:field="*{nombre}" >
+		<label for="especie">Especie:</label>
+		<input type="text" name="especie" id="especie" th:field="*{especie}" >
+		<label for="edad">Edad:</label>
+		<input type="text" name="edad" id="edad" th:field="*{edad}" >
+        <label for="duenio">Dueño:</label>
+        <select id="duenio" name="idDuenio" class="form-control" >
+            <option th:each="duenio : ${duenios}" th:value="${duenio.id}" th:text="${duenio.nombre}"></option>
+        </select>
+		<button type="submit">Guardar Mascota</button>
+	</form>
+	<br>
+	<a th:href="@{/mascotas}">Ver lista de mascota</a>
+</body>
+
+</html>

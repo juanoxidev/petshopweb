@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pets Java Web</title>
+</head>
+
+<body>
+	<h2>Lista de Duenios</h2>
+	<!-- Botones de acciones de las mascotas -->
+	<table border="1">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nombre</th>
+				<th>Direccion</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each=" duenio : ${duenios}">
+				<td th:text="${duenio.id}"></td>
+				<td th:text="${duenio.nombre}"></td>
+				<td th:text="${duenio.direccion}"></td>
+			</tr>
+		</tbody>
+	</table>
+	
+		<a th:href="@{/mascotas}"><button type="button">Ver lista de mascotas</button></a>
+</body>
+
+</html>
